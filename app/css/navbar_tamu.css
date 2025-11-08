@@ -1,0 +1,157 @@
+/* Header styling */
+header {
+    background-color: #0693E3;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1000; /* Ensure header is on top */
+    top: 0; /* Stick to the top */
+}
+
+header img.logo {
+    width: 180px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+}
+
+.header-links a {
+    text-decoration: none;
+    margin-left: 15px; /* Adjusted spacing */
+    padding: 8px 15px; /* Adjusted padding for better touch targets */
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease;
+}
+
+.header-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter hover background */
+    border-color: #fff; /* White border on hover */
+}
+
+.reg-button, .log-button {
+    display: inline-block;
+    padding: 8px 15px; /* Adjusted padding for consistency */
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.reg-button {
+    background-color: #002C61;
+    color: #ffffff;
+}
+
+.log-button {
+    background-color: #ffffff;
+    color: #002C61;
+}
+
+.reg-button:hover, .log-button:hover {
+    background-color: #03517D; /* Consistent hover color for both buttons */
+}
+
+/* Search form styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Keep aligning elements to the left */
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    font-size: 16px; /* Increased font size for better readability */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 400px; /* Reduced width for better responsiveness */
+    height: 40px;
+    margin-right: 20px; /* Adjusted spacing */
+    font-family: 'Mulish', sans-serif;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* Adequate padding for the icon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px; /* Icon position */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: auto;
+}
+
+/* Focus styles */
+.search-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Navigation menu styling */
+nav {
+    background: #fff;
+    color: #000; /* Changed text color for better contrast */
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px; /* Adjusted spacing between menu items */
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-family: 'Mulish', sans-serif;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: #fd9917;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.nav-icon img {
+    width: 30px; /* Consistent icon size */
+    height: auto;
+}

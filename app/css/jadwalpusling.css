@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.schedule-search-form {
+    text-align: center;
+    /* margin-bottom: 20px;<form action="search.php" method="get" class="search-form">
+    <input type="text" name="book_title" placeholder="Cari Judul/Pengarang/ISBN...">
+</form>
+ */
+}
+
+.schedule-search-form {
+    display: flex;
+    justify-content: center; /* Memastikan form berada di tengah */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.schedule-search-form input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 5px;
+    width: 200px; /* Sesuaikan lebar sesuai kebutuhan */
+    box-sizing: border-box;
+}
+
+.schedule-search-form input[type="submit"] {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.schedule-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.schedule {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.schedule-content {
+    padding: 15px;
+}
+.schedule h2 {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+}
+.schedule p {
+    margin: 10px 0;
+}
+.maps-link {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+}

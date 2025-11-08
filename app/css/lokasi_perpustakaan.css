@@ -1,0 +1,82 @@
+/* library_location.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+p {
+    color: #666;
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+/* Container for the entire content */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Map Styling */
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Contact info section */
+.contact-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #25D366; /* WhatsApp green */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Link hover effect */
+.contact-info a:hover {
+    color: #128C7E; /* Darker WhatsApp green */
+}
+
+/* Styling for Address Section */
+.address {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    #map {
+        height: 300px;
+    }
+}

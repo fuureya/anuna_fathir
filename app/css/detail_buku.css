@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Section styling */
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+.book-image {
+    width: 100px; /* Adjust as needed */
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+.book-image img {
+    max-width: 500px;
+    height: 500px;
+    border-radius: 5px;
+}
+
+.book-details {
+    float: right;
+    width: 60%; /* Adjust as needed */
+    padding-left: 1px;
+    margin-right: 70px;
+}
+
+.book-details h1 {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #002C61;
+    max-width: 520px; 
+}
+
+.book-details p {
+    margin-bottom: 8px;
+    color: #002C61;
+    font-size: 12px;
+    max-width: 520px; /* Sesuaikan dengan lebar yang Anda inginkan */
+}
+
+
+.book-details a {
+    display: inline-block;
+    background-color: #002C61;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    border-radius: 6px;
+    text-align: center; 
+    margin-bottom: 40px;
+}
+
+.book-details a:hover {
+    background-color: #0572b2;
+}
+.category-icon {
+    vertical-align: middle; /* Menjaga ikon sejajar dengan teks */
+    margin-right: 10px; /* Menambahkan margin kanan untuk pemisahan */
+}
+.category-name {
+    font-weight: bold; /* Membuat teks kategori menjadi tebal */
+    vertical-align: middle; /* Menjaga ikon sejajar dengan teks */
+    margin-right: 10px; /* Menambahkan margin kanan untuk pemisahan */
+    
+}
+hr {
+    width: 65%; /* Atur panjang garis horizontal menjadi 80% dari lebar kontainer induknya */
+    height: 1px; /* Atur tinggi garis */
+    background-color: #ccc; /* Warna latar belakang garis */
+    border-bottom: 2px solid #002C61;
+    margin: 10px auto; 
+    margin-left: 1px;
+}
+.icon-container {
+
+    display: flex; /* Menggunakan flexbox */
+    justify-content: space-between; /* Menyusun ikon dengan jarak yang sama di antara mereka */
+    align-items: center; /* Memusatkan ikon secara vertikal */
+    width: 100%; /* Lebar maksimum container */
+    max-width: 600px; /* Batas maksimum lebar container */
+    margin: 0 auto; /* Memusatkan container di tengah */
+}
+
+.ebook-icon, .file-icon {
+    width: 50%; /* Menggunakan setengah lebar dari container untuk setiap ikon */
+    text-align: center; /* Memusatkan teks di dalam ikon (opsional) */
+}
+
+.ebook-icon img, .file-icon img {
+    width: 80px; /* Ukuran gambar ikon */
+    height: 80px; /* Ukuran gambar ikon */
+}
+er {
+    text-align: center; /* Memusatkan teks horizontal */
+    margin-top: 20px; /* Atur jarak atas */
+}
+
+.container h3 {
+    margin-top: 10px; /* Atur jarak atas tambahan */
+}
+.book-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.book-details {
+    flex: 1;
+
+}
+
+.loan-container {
+    float: right;
+    border: 1px solid #003B82;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    margin-right: -30px;
+    margin-top: 20px; /* Sesuaikan lebar sesuai keinginan */
+    background-color: #ffffff;
+}
+
+.loan-button {
+    display: inline-block;
+    background-color: #002C61;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.loan-button:hover {
+    background-color: #003B82;
+}
+
+.share-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -15px;
+}
+
+.share-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.recommendation-button {
+    display: inline-block;
+    background-color: #002C61;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.recommendation-button:hover {
+    background-color: #003B82;
+}
+.service-center {
+    width: 100%;
+    height: 200px;
+    max-width: 2000px;
+    background-color: #D9D9D9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+
+.service-box {
+    width: calc(20.33% - 20px);
+    background-color: #002C61;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 60px;
+    margin-left: 200px;
+}
+.service-box-faq {
+    width: calc(15.40% - 20px);
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 60px;
+    margin-right: 200px;
+}
+.service-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(to right, #0693E3, #03517D);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+}
+.footer-logo {
+    float:left; /* Menempatkan logo di sebelah kanan */
+    margin-right: 20px; /* Memberikan jarak dari kanan */
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 100px; /* Sesuaikan tinggi logo sesuai kebutuhan */
+    width: 200px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Dua kolom */
+    gap: 20px; /* Jarak antar elemen */
+}
+
+/* .footer-info,
+.footer-additional,
+.footer-shortcuts {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+.footer-info h4,
+.footer-additional h4,
+.footer-shortcuts h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.footer-info ul,
+.footer-additional ul,
+.footer-shortcuts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-info ul li,
+.footer-additional ul li,
+.footer-shortcuts ul li {
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.footer-info ul li a,
+.footer-additional ul li a,
+.footer-shortcuts ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-info ul li a:hover,
+.footer-additional ul li a:hover,
+.footer-shortcuts ul li a:hover {
+    color: #cccccc;
+}

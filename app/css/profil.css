@@ -1,0 +1,172 @@
+/* Reset default margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    background-color: #f1f1f1;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #0693E3;
+}
+
+header .logo {
+    width: 150px;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn img {
+    width: 40px;
+    height: 40px;
+}
+
+#user-settings-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* Profil Section */
+.profile-container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, #0693E3, #002C61);
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.profile-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.profile-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 50px;
+    margin-left: 30px;
+}
+
+.profile-details img.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 50px;
+    /* margin-right: 50px; */
+    border: 3px solid white;
+}
+
+.profile-details ul {
+    list-style: none;
+}
+
+.profile-details li {
+    margin: 10px 0;
+}
+
+.profile-details strong {
+    color: white;
+}
+
+/* Form for Upload Profile Picture */
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    font-size: 16px;
+    margin-right: 50px;
+}
+
+form input[type="file"] {
+    padding: 5px;
+}
+
+form button {
+    background-color: #ffffff98;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+    }
+
+    .profile-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-details img.profile-img {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif; /* Mengatur jenis font */
+    margin: 0; /* Menghapus margin default */
+    padding: 20px; /* Menambahkan padding */
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('perpus.jpg') no-repeat center center fixed; /* Ganti dengan URL gambar yang valid */
+    background-size: cover;
+    filter: blur(8px); /* Atur tingkat blur di sini */
+    z-index: -1; /* Pastikan elemen ini berada di belakang konten */
+}
+h2 {
+    color: #333; /* Warna teks untuk judul */
+    text-align: center; /* Memusatkan judul */
+    margin-bottom: 30px; /* Jarak bawah judul */
+    font-size: 28px; /* Ukuran font judul */
+}
+
+form {
+    background: white; /* Latar belakang formulir */
+    padding: 30px; /* Padding di dalam formulir */
+    border-radius: 15px; /* Sudut melengkung */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Efek bayangan yang lebih halus */
+    max-width: 500px; /* Lebar maksimum formulir */
+    margin: auto; /* Memusatkan formulir */
+    transition: transform 0.3s; /* Transisi saat hover */
+    max-height: fit-content;
+}
+
+form:hover {
+    transform: scale(1.02); /* Efek sedikit memperbesar formulir saat hover */
+}
+
+label {
+    display: block; /* Membuat label tampil sebagai blok */
+    margin-bottom: 8px; /* Jarak antara label dan textarea */
+    font-weight: bold; /* Menebalkan teks label */
+    color: #555; /* Warna teks label */
+}
+
+textarea {
+    width: 95%; /* Lebar textarea 100% dari elemen induk */
+    padding: 12px; /* Padding di dalam textarea */
+    border: 2px solid #007BFF; /* Garis batas berwarna biru */
+    border-radius: 8px; /* Sudut melengkung */
+    resize: vertical; /* Mengizinkan pengguna untuk mengubah ukuran secara vertikal */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transisi saat fokus */
+}
+
+textarea:focus {
+    border-color: #0056b3; /* Mengubah warna batas saat fokus */
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5); /* Efek bayangan saat fokus */
+    outline: none; /* Menghapus outline default */
+}
+
+input[type="submit"] {
+    background-color: #007BFF; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    border: none; /* Menghapus garis batas */
+    padding: 12px 20px; /* Padding dalam tombol */
+    border-radius: 8px; /* Sudut melengkung */
+    cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
+    font-size: 18px; /* Ukuran font tombol */
+    transition: background-color 0.3s, transform 0.2s; /* Transisi untuk efek hover */
+    width: 100%; /* Tombol memenuhi lebar formulir */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Warna latar belakang saat hover */
+    transform: translateY(-4px); /* Efek sedikit mengangkat tombol saat hover */
+}
+
+input[type="submit"]:active {
+    transform: translateY(0); /* Mengembalikan posisi tombol saat ditekan */
+}

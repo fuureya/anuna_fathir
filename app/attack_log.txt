@@ -1,0 +1,4 @@
+[2024-12-30 07:06:32] SQLi - SELECT * FROM users WHERE id=1 --
+[2024-12-30 07:06:53] SQLi - SELECT * FROM users WHERE id=1 --
+[2024-12-30 07:07:00] SQLi - SELECT * FROM users WHERE id=1 --
+Deny from all
