@@ -1,0 +1,662 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('perpus.jpg') no-repeat center center fixed; /* Ganti dengan URL gambar yang valid */
+    background-size: cover;
+    filter: blur(8px); /* Atur tingkat blur di sini */
+    z-index: -1; /* Pastikan elemen ini berada di belakang konten */
+}
+/* Header styling */
+header {
+    background: #0693E3;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img.logo {
+    width: 180px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+}
+
+.header-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* Search form styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Memastikan elemen berada di sebelah kiri */
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 700px;
+    height: 40px;
+    margin-right: 200px;
+    font-family: 'Mulish', sans-serif;
+    font-size: x-small;
+}
+
+/* Navigation menu styling */
+nav {
+    background: #fff;
+    color: #ffffff;
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #000000 !important; /* Force the border-bottom property */
+    padding: 10px 0; /* Ensure padding for visibility */
+
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Vertically center nav items */
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-family: 'Mulish', sans-serif;
+    font-size: small; /* You can use smaller sizes like 'smaller' or specify exact size e.g. '10px' */
+}
+
+nav ul li a:hover {
+    background: #fd9917;
+    border-radius: 5px;
+}
+/*  */
+nav ul li a.active::after {
+    width: 100%; /* Expand to full width when active */
+}
+.nav-icon {
+    margin-left: -55px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.nav-icon img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+/* Section styling */
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+/* Carousel styling */
+.carousel {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: #1a1a1a;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.carousel .prev {
+    left: 10px;
+}
+
+.carousel .next {
+    right: 10px;
+}
+
+
+.carousel .caption {
+    margin-top: 5px;
+    font-size: 14px;
+}
+.carousel .book {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px; /* Jarak antar buku */
+    width: 350px; /* Lebar buku */
+}
+
+.carousel .book img {
+    width: 100%; /* Memastikan gambar memenuhi lebar kontainer */
+    height: auto; /* Tinggi otomatis */
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Overlay container styling */
+.overlay-container {
+    position: relative;
+    width: 100%; /* Sesuaikan dengan lebar yang diinginkan */
+    max-width: 1200px; /* Atur maksimum lebar jika perlu */
+    margin: 0 auto;
+    padding: 20px 40px; /* Tambahkan padding samping */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden; /* Mencegah konten keluar dari kontainer */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Tambahkan tinggi tetap untuk kontainer buku */
+.books-container {
+    display: flex; 
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    gap: 30px; 
+    padding: 20px; 
+    height: 320px;
+    width: 3000px;
+}
+
+/* Jika ingin membatasi tinggi buku */
+.book {
+    position: relative; 
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+    text-align: center; 
+    transition: transform 0.5s ease; 
+    padding-bottom: 40px; 
+    overflow: hidden; /* Mencegah konten buku keluar dari kontainer */
+}
+
+.book-cover {
+    height: auto; /* Tinggi otomatis untuk menjaga proporsi */
+    margin-bottom: 10px; /* Jarak bawah untuk mencegah tumpang tindih */
+    border-radius: 8px; /* Sudut melengkung untuk tampilan yang lebih halus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek visual */
+    width: 200px;
+    height: 200px;
+}
+
+.book-info {
+    position: absolute; /* Posisi absolut untuk menempatkan info di atas gambar */
+    bottom: 0; /* Menempel di bagian bawah */
+    left: 0;
+    right: 0;
+    background: rgba(46, 45, 45, 0.7); /* Latar belakang semi-transparan */
+    color: white; /* Warna teks putih */
+    padding: 10px; /* Padding di dalam kontainer info */
+    margin-top: 5px; /* Jarak atas untuk memberikan ruang */
+}
+.book-info h3 {
+    font-size: 15px; /* Ukuran font judul */
+    margin: 0; /* Menghapus margin */
+}
+
+.book-info p {
+    font-size: 10px; /* Ukuran font untuk penulis dan info lainnya */
+    margin: 5px 0; /* Margin antar paragraf */
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+    color: #1a1a1a;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.arrow.prev {
+    left: 10px;
+}
+
+.arrow.next {
+    right: 10px;
+}
+/* Styling untuk judul dan subtitle rekomendasi */
+h3.recommendation-title {
+    text-align: center;
+    color: black;
+    margin-bottom: 10px; /* Jarak bawah untuk judul rekomendasi */
+}
+
+h4.recommendation-subtitle {
+    text-align: center;
+    color: #6d6b6b;
+    font-size: 10px;
+    margin-bottom: 20px; /* Jarak bawah untuk subtitle rekomendasi */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+
+.show {
+    display: block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.dropdown img {
+    width: 40px;
+    height: 40px;
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    font-size: small;
+    margin-left: -1px;
+}
+
+.dropdown-content a:hover {
+    background-color: #fd9917;
+    border-radius: 5px;
+}
+
+.dropdown-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.show {
+    display: block;
+}
+
+.additional-content {
+    width: 100%;
+    max-width: 1100px;
+    height: 550px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: 
+        linear-gradient(
+            rgba(6, 147, 227, 0.5),
+            rgba(6, 147, 227, 0.5)
+        ),
+        url('perpus.jpg'); /* Ganti dengan path yang benar ke gambar perpus.jpg */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    margin: -5px auto 0;
+}
+
+
+t h3 {
+    color: #002C61; /* Warna teks untuk judul h3 */
+}
+
+.additional-content p {
+    font-size: 16px; /* Ukuran font untuk paragraf */
+    line-height: 1.6; /* Jarak antarbaris pada teks */
+}
+
+/* Scroll content styles */
+.main-topic-title {
+    margin-top: 20px; /* Adjust based on the position needed */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #002C61;
+    font-size: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+.main-topic-title::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #002C61;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+h3.recommendation-title {
+    text-align: left;
+    color: black;
+}
+
+h4.recommendation-subtitle {
+    text-align: left;
+    color: #6d6b6b;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Styles for the news container */
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 18px;
+}
+
+.news-box {
+    width: calc(33.333% - 40px);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(15, 31, 255, 0.801);
+    overflow: hidden;
+    text-align: left;
+}
+
+.news-box img {
+    width: 100%;
+    height: auto;
+}
+
+.news-content {
+    padding: 15px;
+}
+
+.news-content h4 {
+    text-transform: uppercase;
+    margin: 5 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.news-content p {
+    font-size: 14px;
+    color: #666;
+}
+.news-meta {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.news-content a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0693E3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .news-box {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .news-box {
+        width: 100%;
+    }
+}
+.ebook-container {
+    background-color: #0693E3;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.ebook-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ebook-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.ebook-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.icon-container {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: space-between; /* Menyusun ikon dengan jarak yang sama di antara mereka */
+    align-items: center; /* Memusatkan ikon secara vertikal */
+    width: 100%; /* Lebar maksimum container */
+    max-width: 600px; /* Batas maksimum lebar container */
+    margin: 0 auto; /* Memusatkan container di tengah */
+}
+
+.ebook-icon, .file-icon {
+    width: 50%; /* Menggunakan setengah lebar dari container untuk setiap ikon */
+    text-align: center; /* Memusatkan teks di dalam ikon (opsional) */
+}
+
+.ebook-icon img, .file-icon img {
+    width: 80px; /* Ukuran gambar ikon */
+    height: 80px; /* Ukuran gambar ikon */
+}
+er {
+    text-align: center; /* Memusatkan teks horizontal */
+    margin-top: 20px; /* Atur jarak atas */
+}
+
+.container h3 {
+    margin-top: 10px; /* Atur jarak atas tambahan */
+}
+
+.service-center {
+    width: 100%;
+    height: 200px;
+    max-width: 2000px;
+    background-color: #D9D9D9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+
+.service-box {
+    width: calc(20.33% - 20px);
+    background-color: #002C61;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 60px;
+    margin-left: 200px;
+}
+.service-box-faq {
+    width: calc(15.40% - 20px);
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-top: 60px;
+    margin-right: 200px;
+}
+.service-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/* Footer styling */
+footer {
+    background: linear-gradient(to right, #0693E3, #03517D);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+}
+.footer-logo {
+    float:left; /* Menempatkan logo di sebelah kanan */
+    margin-right: 20px; /* Memberikan jarak dari kanan */
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 100px; /* Sesuaikan tinggi logo sesuai kebutuhan */
+    width: 200px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Dua kolom */
+    gap: 20px; /* Jarak antar elemen */
+}
+
+/* .footer-info,
+.footer-additional,
+.footer-shortcuts {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+.footer-info h4,
+.footer-additional h4,
+.footer-shortcuts h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.footer-info ul,
+.footer-additional ul,
+.footer-shortcuts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-info ul li,
+.footer-additional ul li,
+.footer-shortcuts ul li {
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.footer-info ul li a,
+.footer-additional ul li a,
+.footer-shortcuts ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-info ul li a:hover,
+.footer-additional ul li a:hover,
+.footer-shortcuts ul li a:hover {
+    color: #cccccc;
+}
+
+.floating-icon {
+    position: fixed; /* Membuat elemen tetap berada di posisi yang ditentukan */
+    bottom: 20px; /* Jarak dari bagian bawah layar */
+    right: -100px; /* Jarak dari sisi kanan layar */
+    cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
+    z-index: 1000; /* Memastikan elemen ini berada di atas elemen lainnya */
+}
+
+.floating-icon img {
+    width: 400px; /* Ukuran gambar */
+    height: 200px; /* Ukuran gambar */
+}
+
+.floating-icon:hover {
+    transform: scale(1.05); /* Membesar saat hover */
+}

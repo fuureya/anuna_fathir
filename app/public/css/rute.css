@@ -1,0 +1,119 @@
+body {
+    font-family: 'Mulish', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #0693E3;
+    color: #fff;
+    width: 250px; /* Lebar sidebar */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    flex-grow: 1; /* Membuat konten utama mengambil ruang yang tersisa */
+    padding: 20px; /* Tambahkan padding jika diperlukan */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #005bb5;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+input[type="date"] {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #002C61;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0693E3;
+}
+
+#map {
+    margin-top: 20px;
+    height: 600px; /* Atur sesuai kebutuhan */
+    width: 100%; /* Lebar penuh */
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.divider {
+    border: none; /* Menghilangkan border default */
+    height: 4px; /* Tinggi garis untuk membuatnya tebal */
+    background-color: rgba(255, 255, 255, 0.5); /* Warna garis, sesuaikan jika perlu */
+    margin: 10px 0; /* Jarak atas dan bawah */
+}
+.logo {
+    display: block; /* Agar logo ditampilkan sebagai blok */
+    margin: 0 auto 20px; /* Pusatkan logo dan beri jarak bawah */
+    width: 100%; /* Atur lebar logo (sesuaikan sesuai kebutuhan) */
+    height: auto; /* Pertahankan rasio aspek */
+}

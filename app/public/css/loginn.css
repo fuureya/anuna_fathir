@@ -1,0 +1,123 @@
+/* Add your CSS styling here */
+
+/* Add your CSS styling here */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden; /* Mencegah scroll */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('perpusBG.jpeg') no-repeat center center fixed; /* Ganti dengan URL gambar yang valid */
+    background-size: cover;
+    filter: blur(8px); /* Atur tingkat blur di sini */
+    z-index: -1; /* Pastikan elemen ini berada di belakang konten */
+}
+.logo {
+    width: 150px; /* Atur lebar logo sesuai kebutuhan */
+    height: auto; /* Memastikan proporsi tetap terjaga */
+    display: block; /* Membuat elemen menjadi block */
+    margin: 0 auto 15px; /* Memusatkan logo secara horizontal dan memberi jarak bawah */
+    /* Tambahan gaya untuk efek */
+    transition: transform 0.3s; /* Efek transisi ketika hover */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.wrapper {
+    width: 280px; 
+    height: 350px; 
+    padding: 20px;
+    box-shadow: 0 10px 10px rgba(0, 0.5, 0, 0.5);
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #0693E3, #002C61);
+    font-family: 'Mulish', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    display: none; /* Pastikan Anda mengubah ini sesuai kebutuhan */
+}
+
+.form-container h1, .form-container h3 {
+    text-align: center;
+    font-size: 27px;
+    font-family: 'Mulish', sans-serif;
+    color: #fff;
+}
+
+.input-box {
+    margin-bottom: 15px;
+    color: #fff;
+    font-family: 'Mulish', sans-serif;
+    font-size: 13px;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: #fff; /* Warna putih untuk teks */
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+}
+
+.remember-forgot input[type="checkbox"] {
+    margin-right: 5px; /* Atur jarak antara checkbox dan teks "Ingat Saya" */
+    transform: translateY(1px); /* Untuk menyesuaikan sedikit posisi vertikal checkbox */
+}
+
+.remember-forgot a {
+    color: #fff;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.6); /* Menggunakan rgba untuk transparansi */
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.language-selector {
+    text-align: center;
+    margin-top: 15px;
+}

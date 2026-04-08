@@ -1,0 +1,498 @@
+@extends('layouts.app-public')
+
+@section('title', 'Reservasi Perpustakaan Keliling')
+
+@push('styles')
+<style>
+    .reservation-container {
+        max-width: 700px;
+        margin: 40px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .reservation-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .reservation-header h2 {
+        font-size: 28px;
+        color: #0693E3;
+        margin-bottom: 10px;
+    }
+    .reservation-header p {
+        color: #666;
+        font-size: 14px;
+    }
+    .download-template-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+    }
+    .download-template-btn:hover {
+        background: linear-gradient(135deg, #218838 0%, #1aa179 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+        color: white;
+    }
+    .download-template-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    .alert-error {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #dc3545;
+        margin-bottom: 25px;
+    }
+    .alert-error ul {
+        margin: 10px 0 0 20px;
+        padding: 0;
+    }
+    .alert-error li {
+        margin: 5px 0;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #333;
+        font-size: 14px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group input[type="time"],
+    .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: #0693E3;
+        box-shadow: 0 0 0 3px rgba(6, 147, 227, 0.1);
+    }
+    .form-group input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        border: 2px dashed #e0e0e0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .form-group input[type="file"]:hover {
+        border-color: #0693E3;
+        background: #f8f9fa;
+    }
+    .form-group select {
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 12px;
+        appearance: none;
+    }
+    .btn-submit {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #0693E3, #0056b3);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(6, 147, 227, 0.3);
+    }
+    .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(6, 147, 227, 0.4);
+    }
+    .form-info {
+        background: #e3f2fd;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #2196F3;
+        font-size: 13px;
+        color: #0d47a1;
+    }
+</style>
+@endpush
+
+@section('content')
+<div class="reservation-container">
+    <div class="reservation-header">
+        <h2>📚Reservasi Perpustakaan Keliling</h2>
+        <p>Isi formulir berikut untuk membuat reservasi kunjungan perpustakaan keliling</p>
+
+    </div>
+
+    @if ($errors->any())
+        <div class="alert-error">
+            <strong>⚠ Terjadi kesalahan:</strong>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <div class="form-info">
+        <strong>ℹ Informasi:</strong> Surat permohonan harus dalam format PDF dengan ukuran maksimal 5MB
+    </div>
+
+    <form method="POST" action="{{ route('reservations.store') }}" enctype="multipart/form-data">
+        @csrf
+
+        <div class="form-group">
+            <label for="full_name">Nama Lengkap</label>
+            <input type="text" id="full_name" name="full_name" value="{{ old('full_name', auth()->user()->fullname ?? '') }}" 
+                   required placeholder="Nama lengkap Anda">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{ old('email', auth()->user()->email ?? '') }}" 
+                   required placeholder="email@example.com">
+            <small style="color: #666; font-size: 0.85em;">Email untuk menerima notifikasi status reservasi</small>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Kategori (Event/Instansi)</label>
+            <input type="text" id="category" name="category" value="{{ old('category') }}" 
+                   required placeholder="Contoh: Event, Sekolah, Organisasi">
+        </div>
+
+        <div class="form-group">
+            <label for="occupation">Nama Kegiatan/Instansi</label>
+            <input type="text" id="occupation" name="occupation" value="{{ old('occupation') }}" 
+                   required placeholder="Masukkan nama kegiatan atau instansi">
+        </div>
+
+        <div class="form-group">
+            <label for="address">Alamat</label>
+            <input type="text" id="address" name="address" value="{{ old('address') }}" 
+                   required placeholder="Alamat lengkap lokasi kunjungan">
+        </div>
+
+        <div class="form-group">
+            <label for="phone_number">Nomor Telepon</label>
+            <input type="text" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" 
+                   required placeholder="08XX-XXXX-XXXX">
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Jenis Kelamin</label>
+            <select id="gender" name="gender" required>
+                <option value="">-- Pilih --</option>
+                <option value="Laki-laki" @selected(old('gender')==='Laki-laki')>Laki-laki</option>
+                <option value="Perempuan" @selected(old('gender')==='Perempuan')>Perempuan</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="reservation_date">Tanggal Reservasi</label>
+            <input type="date" id="reservation_date" name="reservation_date" 
+                   value="{{ old('reservation_date') }}" required 
+                   min="{{ date('Y-m-d') }}">
+            <small style="color: #666; font-size: 0.85em;" id="date-info"></small>
+            
+            <!-- Show scheduled slots for selected date -->
+            <div id="scheduled-slots" style="display: none; background: #e8f5e9; border-left: 4px solid #4caf50; padding: 15px; margin-top: 10px; border-radius: 5px;">
+                <strong style="color: #2e7d32; display: flex; align-items: center; gap: 5px;">
+                    📅 Jadwal Terdaftar pada Tanggal Ini:
+                </strong>
+                <div id="scheduled-slots-list" style="margin-top: 10px;"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="visit_time">Waktu Kunjungan</label>
+            <input type="time" id="visit_time" name="visit_time" 
+                   value="{{ old('visit_time') }}" required>
+            <small style="color: #666; font-size: 0.85em;" id="time-info"></small>
+            <div id="booked-slots-warning" style="display: none; background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; margin-top: 10px; border-radius: 5px;">
+                <strong>⚠️ Waktu yang sudah direservasi pada tanggal ini:</strong>
+                <ul id="booked-slots-list" style="margin: 8px 0 0 20px; padding: 0;"></ul>
+                <p style="margin: 8px 0 0 0; font-size: 0.9em; color: #856404;">Silakan pilih waktu lain untuk menghindari bentrok jadwal.</p>
+            </div>
+        </div>
+	
+	<div class="form-group">
+    <label for="request_letter">
+        Upload Surat Permohonan (PDF, maks. 5MB)
+    </label>
+
+    <input 
+        type="file" 
+        id="request_letter" 
+        name="request_letter" 
+        accept=".pdf" 
+        required
+    >
+
+<!-- ✅ TEMPLATE DOWNLOAD DIPINDAHKAN KE SINI -->
+<small style="display: block; margin-top: 10px; font-size: 13px; color: #555;">
+    Belum memiliki surat permohonan?
+</small>
+
+<a href="{{ route('reservations.template.download') }}" 
+   class="download-template-btn" 
+   style="margin-top: 8px;">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+    Download Surat Persyaratan Pusling (PDF)
+</a>
+</div>
+
+<button type="submit" class="btn-submit">
+            ✓ Kirim Reservasi
+        </button>
+    </form>
+</div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('reservation_date');
+    const timeInput = document.getElementById('visit_time');
+    const dateInfo = document.getElementById('date-info');
+    const timeInfo = document.getElementById('time-info');
+    const warningBox = document.getElementById('booked-slots-warning');
+    const slotsList = document.getElementById('booked-slots-list');
+    const submitBtn = document.querySelector('.btn-submit');
+    
+    let bookedSlots = [];
+    
+    // Check booked slots when date changes
+    dateInput.addEventListener('change', function() {
+        const selectedDate = this.value;
+        
+        if (!selectedDate) {
+            warningBox.style.display = 'none';
+            dateInfo.textContent = '';
+            return;
+        }
+        
+        // Show loading
+        dateInfo.textContent = '⏳ Memeriksa jadwal...';
+        dateInfo.style.color = '#666';
+        
+        // Fetch booked slots from API
+        fetch(`{{ route('reservations.booked-slots') }}?date=${selectedDate}`)
+            .then(response => response.json())
+            .then(data => {
+                bookedSlots = data.booked_slots;
+                
+                if (bookedSlots.length > 0) {
+                    warningBox.style.display = 'block';
+                    slotsList.innerHTML = '';
+                    
+                    bookedSlots.forEach(slot => {
+                        const li = document.createElement('li');
+                        li.style.margin = '5px 0';
+                        li.style.color = '#856404';
+                        li.innerHTML = `<strong>${slot.time}</strong> - Direservasi oleh ${slot.name}`;
+                        slotsList.appendChild(li);
+                    });
+                    
+                    dateInfo.textContent = `⚠️ ${bookedSlots.length} waktu sudah direservasi pada tanggal ini`;
+                    dateInfo.style.color = '#856404';
+                    
+                    // Show scheduled slots in green box
+                    showScheduledSlots(bookedSlots);
+                } else {
+                    warningBox.style.display = 'none';
+                    dateInfo.textContent = '✓ Tanggal tersedia, pilih waktu Anda';
+                    dateInfo.style.color = '#28a745';
+                    document.getElementById('scheduled-slots').style.display = 'none';
+                }
+                
+                // Re-check current time if already selected
+                if (timeInput.value) {
+                    checkTimeConflict();
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching booked slots:', error);
+                dateInfo.textContent = '⚠️ Gagal memeriksa jadwal. Silakan coba lagi.';
+                dateInfo.style.color = '#dc3545';
+            });
+    });
+    
+    // Check time conflict when time changes
+    timeInput.addEventListener('change', checkTimeConflict);
+    timeInput.addEventListener('blur', checkTimeConflict);
+    
+    function checkTimeConflict() {
+        const selectedTime = timeInput.value;
+        
+        if (!selectedTime || bookedSlots.length === 0) {
+            timeInfo.textContent = '';
+            timeInput.style.borderColor = '#e0e0e0';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+            return;
+        }
+        
+        // Check if selected time conflicts with booked slots
+        const conflict = bookedSlots.find(slot => slot.time === selectedTime);
+        
+        if (conflict) {
+            timeInfo.textContent = `❌ Waktu ${selectedTime} sudah direservasi oleh ${conflict.name}. Pilih waktu lain!`;
+            timeInfo.style.color = '#dc3545';
+            timeInfo.style.fontWeight = 'bold';
+            timeInput.style.borderColor = '#dc3545';
+            timeInput.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.5';
+            submitBtn.style.cursor = 'not-allowed';
+            
+            // Show alert
+            showAlert('Waktu Bentrok!', `Waktu ${selectedTime} sudah direservasi oleh ${conflict.name}. Silakan pilih waktu lain.`);
+        } else {
+            timeInfo.textContent = '✓ Waktu tersedia';
+            timeInfo.style.color = '#28a745';
+            timeInfo.style.fontWeight = 'normal';
+            timeInput.style.borderColor = '#28a745';
+            timeInput.style.boxShadow = '0 0 0 3px rgba(40, 167, 69, 0.1)';
+            
+            // Enable submit button
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+        }
+    }
+    
+    function showScheduledSlots(slots) {
+        const scheduledBox = document.getElementById('scheduled-slots');
+        const scheduledList = document.getElementById('scheduled-slots-list');
+        
+        scheduledBox.style.display = 'block';
+        scheduledList.innerHTML = '';
+        
+        slots.forEach((slot, index) => {
+            const slotDiv = document.createElement('div');
+            slotDiv.style.cssText = `
+                background: white;
+                padding: 10px 15px;
+                margin: 5px 0;
+                border-radius: 8px;
+                border-left: 3px solid #4caf50;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            `;
+            
+            slotDiv.innerHTML = `
+                <div>
+                    <strong style="color: #2e7d32; font-size: 16px;">🕐 ${slot.time}</strong>
+                    <span style="color: #666; margin-left: 10px;">• ${slot.name}</span>
+                </div>
+                <span style="background: #c8e6c9; color: #2e7d32; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">TERDAFTAR</span>
+            `;
+            
+            scheduledList.appendChild(slotDiv);
+        });
+        
+        // Add summary
+        const summary = document.createElement('div');
+        summary.style.cssText = `
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #c8e6c9;
+            color: #2e7d32;
+            font-size: 13px;
+        `;
+        summary.innerHTML = `
+            <strong>💡 Tips:</strong> Pilih waktu yang berbeda dari jadwal di atas untuk menghindari bentrok.
+        `;
+        scheduledList.appendChild(summary);
+    }
+    
+    function showAlert(title, message) {
+        // Create custom alert
+        const alertDiv = document.createElement('div');
+        alertDiv.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 10000;
+            max-width: 400px;
+            text-align: center;
+            animation: slideIn 0.3s ease;
+        `;
+        
+        alertDiv.innerHTML = `
+            <div style="font-size: 48px; margin-bottom: 15px;">⚠️</div>
+            <h3 style="color: #dc3545; margin: 0 0 10px 0; font-size: 20px;">${title}</h3>
+            <p style="color: #666; margin: 0 0 20px 0; line-height: 1.5;">${message}</p>
+            <button onclick="this.parentElement.remove(); document.getElementById('alert-overlay').remove()" 
+                    style="background: #dc3545; color: white; border: none; padding: 10px 30px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600;">
+                OK, Saya Mengerti
+            </button>
+        `;
+        
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.id = 'alert-overlay';
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+        `;
+        overlay.onclick = function() {
+            alertDiv.remove();
+            this.remove();
+        };
+        
+        document.body.appendChild(overlay);
+        document.body.appendChild(alertDiv);
+    }
+    
+    // Trigger check on load if old values exist
+    if (dateInput.value) {
+        dateInput.dispatchEvent(new Event('change'));
+    }
+});
+</script>
+@endpush
+@endsection

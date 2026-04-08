@@ -1,0 +1,169 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 150px;
+}
+/* Add your CSS styling here */
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('perpusBG.jpeg') no-repeat center center fixed; /* Ganti dengan URL gambar yang valid */
+    background-size: cover;
+    filter: blur(8px); /* Atur tingkat blur di sini */
+    z-index: -1; /* Pastikan elemen ini berada di belakang konten */
+}
+.logo {
+    width: 150px; /* Atur lebar logo sesuai kebutuhan */
+    height: auto; /* Memastikan proporsi tetap terjaga */
+    display: block; /* Membuat elemen menjadi block */
+    margin: 0 auto 15px; /* Memusatkan logo secara horizontal dan memberi jarak bawah */
+    /* Tambahan gaya untuk efek */
+    transition: transform 0.3s; /* Efek transisi ketika hover */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Wrapper */
+.wrapper {
+    background: linear-gradient(to bottom, #0693E3, #002C61);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    min-height: 600px; /* Menambahkan tinggi minimum untuk container */
+    box-sizing: border-box;
+    overflow-y: auto; /* Menambahkan scroll jika form lebih panjang */
+}
+
+/* Form Title */
+h1 {
+    text-align: left;
+    font-size: 24px;
+    font-family: 'Mulish', sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Input Row (Flexbox untuk NIK dan Email) */
+.input-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    width: calc(50% - 10px);
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.input-box input, .input-box textarea, .input-box select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-box input:focus, .input-box select:focus, .input-box textarea:focus {
+    border-color: #007bff;
+}
+
+/* Textarea style */
+textarea {
+    height: 100px;
+}
+
+/* Password Hint */
+.password-hint {
+    font-size: 8px;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff98;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Privacy Policy Checkbox */
+.custom-checkbox {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.custom-checkbox label {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Login Link */
+.login-link {
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+
+.login-link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .input-box {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .wrapper {
+        padding: 20px;
+    }
+}

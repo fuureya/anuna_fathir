@@ -1,0 +1,182 @@
+body {
+    font-family: 'Mulish', sans-serif;
+    background-color: rgb(202, 210, 255);
+    margin-top: 70px;
+    display: flex;
+    justify-content: center; /* Menyusun form di tengah horizontal */
+    align-items: center; /* Menyusun form di tengah vertikal */
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('pusling.jpg') no-repeat center center fixed; /* Ganti dengan URL gambar yang valid */
+    background-size: cover;
+    filter: blur(8px); /* Atur tingkat blur di sini */
+    z-index: -1; /* Pastikan elemen ini berada di belakang konten */
+}
+.logo {
+    width: 150px; /* Atur lebar logo sesuai kebutuhan */
+    height: auto; /* Memastikan proporsi tetap terjaga */
+    display: block; /* Membuat elemen menjadi block */
+    margin: 0 auto 0px; /* Memusatkan logo secara horizontal dan memberi jarak bawah */
+    /* Tambahan gaya untuk efek */
+    transition: transform 0.3s; /* Efek transisi ketika hover */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+.reservation-form-container {
+    background: linear-gradient(to bottom, #0693E3, #002C61);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Pusatkan konten */
+    text-align: center;
+}
+
+
+h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-family: 'Mulish', sans-serif;
+}
+
+.form-group label {
+    flex: 1;
+    margin-left: 25px;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select { /* Tambahkan gaya untuk input dan select */
+    flex: 2;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Mulish', sans-serif;
+    width: 400px;
+    margin-right: 10px; /* Memastikan input mengisi lebar container */
+    background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang yang lebih terang */
+    color: #333; /* Warna teks */
+    font-size: 16px; /* Ukuran font yang lebih besar untuk visibilitas */
+}
+
+.form-group select {
+    appearance: none; /* Menghilangkan style default pada dropdown */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"><path d="M7 10l5 5 5-5z"/></svg>'); /* Gambar panah dropdown */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Posisi panah */
+    background-size: 16px; /* Ukuran panah */
+    padding-right: 10px; /* Ruang untuk panah */
+}
+
+.form-group select:focus {
+    outline: none; /* Menghilangkan outline saat fokus */
+    border: 1px solid #0056b3; /* Border saat fokus */
+}
+
+/* Tambahan untuk memperhalus transisi */
+.form-group input:focus, 
+.form-group select:focus {
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5); /* Efek bayangan saat fokus */
+    transition: box-shadow 0.3s ease; /* Transisi halus untuk bayangan */
+}
+
+button {
+    background-color: #ffffff98;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%; /* Membuat tombol mengisi lebar container */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#map-container {
+    margin-top: 20px;
+    width: 100%; /* Peta menyesuaikan lebar form */
+    height: 300px; /* Ukuran peta proporsional */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan efek bayangan */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.instruction p {
+    color: white; /* Mengubah warna teks menjadi putih */
+    text-align: center;
+    font-weight: bold;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+/* CSS untuk menampilkan pesan sukses dengan desain lebih menarik */
+.success-message-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Transparan hitam di belakang pesan */
+    color: white;
+    font-size: 18px;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+}
+
+.success-message-container div {
+    background-color: #28a745; /* Warna hijau untuk sukses */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.success-message-container p {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.success-message-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.success-message-container button:hover {
+    background-color: #45a049;
+}

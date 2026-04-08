@@ -1,0 +1,119 @@
+/* General container for the Add Book form */
+body {
+    font-family: 'Mulish', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading style */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Input fields */
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Consistent padding */
+    margin-bottom: 15px; /* Space between elements */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Specific textarea styling */
+form textarea {
+    height: 100px; /* Set height to match other inputs */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Focus effect for text, number, and file inputs */
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="file"]:focus,
+form select:focus,
+form textarea:focus { /* Include textarea */
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Dropdown styling */
+form select {
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover and focus effect for the dropdown */
+form select:hover,
+form select:focus {
+    border-color: #0693E3;
+    background-color: #f4f8ff;
+}
+
+/* Submit button */
+form button {
+    background-color: #0693E3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Full width for the button */
+}
+
+form button:hover {
+    background-color: #0672b3; /* Darker color on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form label, form input, form button, form select, form textarea {
+        font-size: 0.9rem;
+    }
+}
